@@ -1,111 +1,26 @@
-.banner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
-}
-
-.left {
-  padding: 72px 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--accent);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(28px, 3.5vw, 48px);
-  font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1.1;
-  margin-bottom: 16px;
-}
+.banner { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+.left { padding: 72px 80px; display: flex; flex-direction: column; justify-content: center; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; }
+.title { font-family: 'Syne', sans-serif; font-size: clamp(24px, 3.5vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px; }
 .hl { color: var(--accent); }
-
-.sub {
-  color: var(--muted);
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.7;
-  max-width: 380px;
-  margin-bottom: 32px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--accent);
-  color: #000;
-  border: none;
-  padding: 14px 28px;
-  border-radius: var(--radius-sm);
-  font-family: 'Syne', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  width: fit-content;
-  transition: background 0.15s;
-}
+.sub { color: var(--muted); font-size: 15px; font-weight: 300; line-height: 1.7; max-width: 380px; margin-bottom: 32px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #000; border: none; padding: 14px 28px; border-radius: var(--radius-sm); font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; width: fit-content; transition: background 0.15s; }
 .btn:hover { background: #f5ff7a; }
-.btn svg {
-  width: 16px; height: 16px;
-  stroke: #000; fill: none;
-  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-}
+.btn svg { width: 16px; height: 16px; stroke: #000; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-.right {
-  position: relative;
-  min-height: 400px;
-  overflow: hidden;
-}
-.right img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: brightness(0.6);
-}
-.overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(8,8,13,0.5) 0%, transparent 60%);
-}
-.discount {
-  position: absolute;
-  top: 50%; right: 60px;
-  transform: translateY(-50%);
-  text-align: center;
-  background: rgba(8,8,13,0.85);
-  border: 1px solid var(--accent-border);
-  backdrop-filter: blur(12px);
-  border-radius: var(--radius);
-  padding: 24px 32px;
-}
-.discountNum {
-  font-family: 'Syne', sans-serif;
-  font-size: 56px;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-}
-.discountOff {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-}
+.right { position: relative; min-height: 400px; overflow: hidden; }
+.right img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); }
+.overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,8,13,0.5) 0%, transparent 60%); }
+.discount { position: absolute; top: 50%; right: 60px; transform: translateY(-50%); text-align: center; background: rgba(8,8,13,0.85); border: 1px solid var(--accent-border); backdrop-filter: blur(12px); border-radius: var(--radius); padding: 24px 32px; }
+.discountNum { font-family: 'Syne', sans-serif; font-size: 56px; font-weight: 800; color: var(--accent); line-height: 1; }
+.discountOff { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; }
 
+/* ── MOBILE ── */
 @media (max-width: 768px) {
   .banner { grid-template-columns: 1fr; }
   .left { padding: 48px 20px; }
-  .right { min-height: 280px; }
-  .discount { right: 20px; }
+  .sub { max-width: 100%; font-size: 14px; }
+  .right { min-height: 260px; }
+  .discount { right: 20px; padding: 16px 20px; }
+  .discountNum { font-size: 40px; }
 }

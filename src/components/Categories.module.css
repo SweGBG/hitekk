@@ -1,103 +1,40 @@
-.section {
-  padding: 72px 80px;
-  border-bottom: 1px solid var(--border);
-}
+.section { padding: 72px 80px; border-bottom: 1px solid var(--border); }
+.header { text-align: center; margin-bottom: 48px; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; }
+.title { font-family: 'Syne', sans-serif; font-size: clamp(22px, 3vw, 40px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+.sub { color: var(--muted); font-size: 15px; font-weight: 300; }
 
-.header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-.eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--accent);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-.title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 12px;
-}
-.sub {
-  color: var(--muted);
-  font-size: 15px;
-  font-weight: 300;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-}
+.grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
 
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
-  transition: all 0.2s;
-  position: relative;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 24px 20px; display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 10px; transition: all 0.2s; position: relative;
 }
-.card:hover {
-  border-color: var(--accent-border);
-  background: var(--surface2);
-  transform: translateY(-3px);
-}
+.card:hover { border-color: var(--accent-border); background: var(--surface2); transform: translateY(-3px); }
+.iconWrap { width: 48px; height: 48px; border-radius: 12px; background: var(--accent-dim); border: 1px solid var(--accent-border); display: flex; align-items: center; justify-content: center; margin-bottom: 4px; }
+.iconWrap svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cardName { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; }
+.cardDesc { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.cardCount { font-size: 10px; color: var(--accent); font-family: 'DM Mono', monospace; }
+.arrow { position: absolute; bottom: 12px; right: 16px; font-size: 14px; color: var(--muted2); transition: color 0.15s, transform 0.15s; }
+.card:hover .arrow { color: var(--accent); transform: translateX(3px); }
 
-.iconWrap {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: var(--accent-dim);
-  border: 1px solid var(--accent-border);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 4px;
-}
-.iconWrap svg {
-  width: 22px; height: 22px;
-  stroke: var(--accent); fill: none;
-  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
-}
+/* ── MOBILE ── */
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
 
-.cardName {
-  font-family: 'Syne', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-}
-.cardDesc {
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.4;
-}
-.cardCount {
-  font-size: 10px;
-  color: var(--accent);
-  font-family: 'DM Mono', monospace;
-}
-.arrow {
-  position: absolute;
-  bottom: 12px; right: 16px;
-  font-size: 14px;
-  color: var(--muted2);
-  transition: color 0.15s, transform 0.15s;
-}
-.card:hover .arrow {
-  color: var(--accent);
-  transform: translateX(3px);
-}
-
-@media (max-width: 1100px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
-}
 @media (max-width: 768px) {
   .section { padding: 48px 20px; }
+  .header { margin-bottom: 28px; }
+  .sub { font-size: 13px; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .card { padding: 18px 14px; }
+  .iconWrap { width: 40px; height: 40px; }
+  .iconWrap svg { width: 18px; height: 18px; }
+  .cardDesc { display: none; }
+  .arrow { display: none; }
+}
+
+@media (max-width: 360px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
 }
