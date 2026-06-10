@@ -1,15 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useLang } from "@/lib/LangContext";
+import { t } from "@/lib/translations";
 import styles from "./Navbar.module.css";
 
-const navLinks = [
-  { label: "Produkter", href: "#produkter" },
-  { label: "Kategorier", href: "#kategorier" },
-  { label: "Om oss", href: "#om-oss" },
-  { label: "Kontakt", href: "#kontakt" },
-];
-
 export default function Navbar() {
+  const { lang, setLang } = useLang();
+  const tr = t[lang].nav;
   const [cartCount, setCartCount] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,25 +17,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Expose cart updater globally for demo
   useEffect(() => {
     (window as any).__hitekk_addToCart = () => setCartCount((c) => c + 1);
   }, []);
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
-      <a href="#" className={styles.logo}>
-        Hi<span>Tekk</span>
-      </a>
+      <a href="#" className={styles.logo}>Hi<span>Tekk</span></a>
 
       <ul className={`${styles.links} ${menuOpen ? styles.open : ""}`}>
-        {navLinks.map((l) => (
-          <li key={l.href}>
-            <a href={l.href} onClick={() => setMenuOpen(false)}>
-              {l.label}
-            </a>
-          </li>
-        ))}
+        <li><a href="#produkter" onClick={() => setMenuOpen(false)}>{tr.products}</a></li>
+        <li><a href="#kategorier" onClick={() => setMenuOpen(false)}>{tr.categories}</a></li>
+        <li><a href="#om-oss" onClick={() => setMenuOpen(false)}>{tr.about}</a></li>
+        <li><a href="#kontakt" onClick={() => setMenuOpen(false)}>{tr.contact}</a></li>
       </ul>
 
       <div className={styles.right}>
@@ -51,16 +42,28 @@ export default function Navbar() {
           {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
         </button>
 
-        <a href="#kontakt" className={styles.ctaBtn}>Kontakta oss</a>
+        {/* Language switcher */}
+        <div className={styles.langSwitch}>
+          <button
+            className={`${styles.langBtn} ${lang === "sv" ? styles.langActive : ""}`}
+            onClick={() => setLang("sv")}
+            aria-label="Svenska"
+          >
+            🇸🇪
+          </button>
+          <button
+            className={`${styles.langBtn} ${lang === "en" ? styles.langActive : ""}`}
+            onClick={() => setLang("en")}
+            aria-label="English"
+          >
+            🇬🇧
+          </button>
+        </div>
 
-        <button
-          className={styles.hamburger}
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label="Meny"
-        >
-          <span />
-          <span />
-          <span />
+        <a href="#kontakt" className={styles.ctaBtn}>{tr.cta}</a>
+
+        <button className={styles.hamburger} onClick={() => setMenuOpen(o => !o)} aria-label="Meny">
+          <span /><span /><span />
         </button>
       </div>
     </nav>
