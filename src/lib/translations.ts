@@ -12,9 +12,9 @@ export const t = {
     },
     // Hero
     hero: {
-      pill: "Veckans deal — upp till 40% rabatt",
-      title1: "Premium teknik.",
-      title2: "Rätt pris.",
+      pill: "Auktoriserad återförsäljare av premium-elektronik",
+      title1: "Teknik i framkant.",
+      title2: "Schysst pris.",
       sub: "Hörlurar, laptops, mobiler och gadgets — noggrant utvalda för dig som inte kompromissar med kvalitet. Fri frakt från 599 kr.",
       btn1: "Shoppa nu",
       btn2: "Om HiTekk",
@@ -25,6 +25,9 @@ export const t = {
       productSpec: "30h batteri · LDAC · Multipoint",
       addBtn: "Lägg i varukorgen",
       dealTag: "Deal −25%",
+      trust1: "Officiell garanti",
+      trust2: "Fri frakt 599+",
+      trust3: "1–3 dagars leverans",
     },
     // Categories
     categories: {
@@ -117,9 +120,9 @@ export const t = {
       cta: "Contact us",
     },
     hero: {
-      pill: "Deal of the week — up to 40% off",
-      title1: "Premium tech.",
-      title2: "Right price.",
+      pill: "Authorized retailer of premium electronics",
+      title1: "Tech at its finest.",
+      title2: "Fair price.",
       sub: "Headphones, laptops, phones and gadgets — carefully selected for those who don't compromise on quality. Free shipping from 599 SEK.",
       btn1: "Shop now",
       btn2: "About HiTekk",
@@ -130,6 +133,9 @@ export const t = {
       productSpec: "30h battery · LDAC · Multipoint",
       addBtn: "Add to cart",
       dealTag: "Deal −25%",
+      trust1: "Official warranty",
+      trust2: "Free shipping 599+",
+      trust3: "1–3 day delivery",
     },
     categories: {
       eyebrow: "// Categories",
