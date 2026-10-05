@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "country-flag-icons": "^1.6.17",
     "next": "15.5.19",
     "react": "^19.0.0",

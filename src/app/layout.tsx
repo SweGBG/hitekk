@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import "./globals.css";
 import { LangProvider } from "@/lib/LangContext";
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="sv">
       <body>
         <LangProvider>{children}</LangProvider>
+        <Analytics />
       </body>
     </html>
   );
