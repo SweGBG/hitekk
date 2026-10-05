@@ -17,7 +17,7 @@ export default function About() {
         <div className="about-media" data-reveal>
           <div className="about-img">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=900&q=80&fit=crop&crop=center" alt="Apple-prylar: iPhone, iPad och MacBook" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=900&q=80&fit=crop&crop=center" alt="Apple-produkter med kartonger" loading="lazy" />
             <span className="corner tl" /><span className="corner tr" /><span className="corner bl" /><span className="corner br" />
           </div>
           <div className="about-badge">
