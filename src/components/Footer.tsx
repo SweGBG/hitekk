@@ -2,6 +2,7 @@
 import { useLang } from "@/lib/LangContext";
 import { t } from "@/lib/translations";
 import styles from "./Footer.module.css";
+import SweGBGCredit from "./SweGBGCredit";
 
 export default function Footer() {
   const { lang } = useLang();
@@ -39,6 +40,7 @@ export default function Footer() {
           {["in","ig","yt","x"].map(s => <a key={s} href="#" className={styles.social}>{s}</a>)}
         </div>
       </div>
+      <SweGBGCredit lang={lang} accent="#5FB4FF" text="rgba(226,234,246,.55)" line="rgba(95,180,255,.2)" />
     </footer>
   );
 }
