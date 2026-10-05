@@ -1,44 +1,51 @@
 "use client";
+import { useState } from "react";
 import { useLang } from "@/lib/LangContext";
-import { t } from "@/lib/translations";
-import styles from "./Footer.module.css";
+import Emblem from "./Emblem";
 import SweGBGCredit from "./SweGBGCredit";
 
 export default function Footer() {
-  const { lang } = useLang();
-  const tr = t[lang].footer;
+  const { lang, tr } = useLang();
+  const f = tr.footer;
+  const [mail, setMail] = useState("");
+  const [done, setDone] = useState(false);
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.top}>
-        <div className={styles.brand}>
-          <div className={styles.logo}>Hi<span>Tekk</span></div>
-          <p className={styles.desc}>{tr.desc}</p>
-          <div className={styles.newsletter}>
-            <input type="email" className={styles.input} placeholder={tr.placeholder} />
-            <button className={styles.subBtn}>{tr.subBtn}</button>
+    <footer className="footer" data-anim>
+      <div className="wrap">
+        <div className="foot-top">
+          <div className="foot-brand">
+            <a href="#top" className="brand" aria-label="HiTekk"><Emblem id="foot" className="brand-em" /><span className="brand-word">Hi<b>Tekk</b></span></a>
+            <p>{f.desc}</p>
+            <p className="orgnr">{f.orgnr}</p>
           </div>
-          <div className={styles.orgnr}>{tr.orgnr}</div>
-        </div>
-        <div>
-          <div className={styles.colTitle}>{tr.col1}</div>
-          <ul className={styles.links}>{tr.shop.map(l => <li key={l}><a href="#">{l}</a></li>)}</ul>
-        </div>
-        <div>
-          <div className={styles.colTitle}>{tr.col2}</div>
-          <ul className={styles.links}>{tr.help.map(l => <li key={l}><a href="#">{l}</a></li>)}</ul>
-        </div>
-        <div>
-          <div className={styles.colTitle}>{tr.col3}</div>
-          <ul className={styles.links}>{tr.company.map(l => <li key={l}><a href="#">{l}</a></li>)}</ul>
+          {[[f.col1, f.shop], [f.col2, f.help], [f.col3, f.company]].map(([title, links]) => (
+            <div key={title as string} className="foot-col">
+              <h4>{title as string}</h4>
+              <ul>{(links as string[]).map((l) => <li key={l}><a href="#produkter">{l}</a></li>)}</ul>
+            </div>
+          ))}
+          <form className="news" onSubmit={(e) => { e.preventDefault(); if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) setDone(true); }}>
+            <label htmlFor="news">{f.newsTitle}</label>
+            {done ? <p className="news-done">{f.subDone}</p> : (
+              <div>
+                <input id="news" type="email" placeholder={f.placeholder} value={mail} onChange={(e) => setMail(e.target.value)} />
+                <button className="btn btn-primary">{f.subBtn}</button>
+              </div>
+            )}
+          </form>
         </div>
       </div>
-      <div className={styles.bottom}>
-        <div className={styles.copy}>{tr.copy}</div>
-        <div className={styles.trust}><span>🔒 SSL</span><span>✓ Klarna</span><span>✓ Swish</span><span>✓ Stripe</span></div>
-        <div className={styles.socials}>
-          {["in","ig","yt","x"].map(s => <a key={s} href="#" className={styles.social}>{s}</a>)}
-        </div>
+
+      <div className="giant" aria-hidden="true">HiTekk</div>
+
+      <div className="wrap foot-bottom">
+        <span>{f.copy}</span>
+        <span className="trust-row"><span>🔒 SSL</span><span>Klarna</span><span>Swish</span><span>Stripe</span></span>
+        <span className="socials">
+          {["in", "ig", "yt", "x"].map((s) => <a key={s} href="#" aria-label={s}>{s}</a>)}
+        </span>
+        <a href="#top" className="to-top">{f.top} ↑</a>
       </div>
       <SweGBGCredit lang={lang} accent="#5FB4FF" text="rgba(226,234,246,.55)" line="rgba(95,180,255,.2)" />
     </footer>

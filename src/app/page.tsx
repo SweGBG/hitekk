@@ -1,27 +1,29 @@
+import Observers from "@/components/Observers";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Categories from "@/components/Categories";
 import Products from "@/components/Products";
-import PromoBanner from "@/components/PromoBanner";
+import Promo from "@/components/Promo";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ScrollFadeIn from "@/components/ScrollFadeIn";
+import CartDrawer from "@/components/CartDrawer";
 
 export default function Home() {
   return (
     <>
-      <ScrollFadeIn />
+      <Observers />
       <Navbar />
       <main>
         <Hero />
         <Categories />
         <Products />
-        <PromoBanner />
+        <Promo />
         <About />
         <Contact />
       </main>
       <Footer />
+      <CartDrawer />
     </>
   );
 }
